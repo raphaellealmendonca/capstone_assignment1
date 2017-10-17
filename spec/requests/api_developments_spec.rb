@@ -17,7 +17,7 @@ RSpec.describe "ApiDevelopments", type: :request do
     it "expose RDBMS-backed API resource" do
       object=City.create(:name=>"test")
       expect(cities_path).to eq("/api/cities")
-      get foo_path(object.id)
+      get cities_path(object.id)
       expect(response).to have_http_status(:ok)
       expect(parsed_body["name"]).to eq("test")
     end
